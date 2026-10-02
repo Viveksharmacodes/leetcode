@@ -1,0 +1,33 @@
+class Solution {
+public:
+    vector<int> getFloorAndCeil(vector<int> nums, int x) {
+        int n=nums.size();
+        int l=0;
+        int h=n-1;
+        int a=-1;
+        int b=n;
+        while(l<=h){
+            int mid=(l+h)/2;
+            if(nums[mid]<=x){
+               a=mid;
+               l=mid+1;
+            }else{
+                h=mid-1;
+            }
+        }
+        l=0;
+         h=n-1;
+         while(l<=h){
+            int mid=(l+h)/2;
+            if(nums[mid]>=x){
+               b=mid;
+               h=mid-1;
+            }else{
+                l=mid+1;
+            }
+        }
+   int floor=(a==-1)? -1: nums[a];
+   int ceil=(b==n)? -1 : nums[b];
+   return {floor,ceil};
+    }
+};
