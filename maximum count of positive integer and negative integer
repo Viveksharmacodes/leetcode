@@ -1,0 +1,35 @@
+class Solution {
+public:
+    int maximumCount(vector<int>& nums) {
+     int n=nums.size();
+     int x=0;
+     int l=0;
+     int h=n-1;
+     int a=-1, b=n;
+     
+     while(l<=h){
+        int mid=(l+h)/2;
+        if(nums[mid]<x) {
+            a=mid;
+            l=mid+1;
+        }else{
+            h=mid-1;
+        }
+     }
+     l=0;h=n-1;
+     while(l<=h){
+        int mid=(l+h)/2;
+        if(nums[mid]>x){
+            b=mid;
+            h=mid-1;
+        }else{
+            l=mid+1;
+        }
+     }
+     b=n-b;
+     a=a+1;
+    
+int k=(a>=b)?a:b;
+return k;
+    }
+};
