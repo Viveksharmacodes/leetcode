@@ -1,0 +1,17 @@
+class Solution {
+public:
+    int reverse(int x) {
+        long long n=x;
+        n=abs(n);
+        long long reverse=0;
+        while(n!=0){
+            int digits=n%10;
+            reverse=reverse*10+digits; //if reverse will INT_MAX ,after 
+            n=n/10;                     //multiplying by 10 it will out of bound.
+        }                              // so taking reverse as long long
+        if(x<0) reverse=-reverse;
+        int ans=(reverse>=INT_MIN && reverse<=INT_MAX) ? reverse : 0;
+        return ans;
+    }
+    
+};
