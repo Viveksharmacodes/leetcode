@@ -1,0 +1,20 @@
+class Solution {
+  public:
+  int sumxy(vector<int>&arr, int x, int y){
+      int sum=0;
+      for(int i=x; i<y; i++){
+          sum+=arr[i];
+      }
+      return sum;
+  }
+    int findEquilibrium(vector<int> &arr) {
+        int n=arr.size();
+        int Tsum=sumxy(arr,0,n);
+        int Lsum=0;
+        for(int i=1; i<n-1; i++){
+            Lsum+=arr[i-1];
+            if(Lsum==Tsum-Lsum-arr[i]) return i;
+        }
+        return -1;
+    }
+};
