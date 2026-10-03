@@ -1,0 +1,18 @@
+class Solution {
+  public:
+    void segregate0and1(vector<int> &arr) {
+        int n=arr.size();
+    int zeroes=0;
+    int ones=0;
+    for(int i=0; i<n; i++){
+        if(arr[i]==0) zeroes++;
+        else ones++;
+    }
+    for(int i=0; i<zeroes; i++){
+        arr[i]=0;
+    }
+    for(int i=zeroes; i<n; i++){
+        arr[i]=1;
+    }
+    }
+};
